@@ -18,7 +18,7 @@ public class Surse extends AppCompatActivity {
 
         String[] arrayString = {"www.Google.ro", "www.yahoo.com", "www.lideriidemaine.ro", "www.peluzasud.org", "www.protv.ro"};
         ArrayAdapter adapter = new ArrayAdapter(getApplicationContext(),
-                                                android.R.layout.simple_list_item_1, arrayString);
+                                                R.layout.acativity_listview, arrayString);
 
         surseListView.setAdapter(adapter);
     }

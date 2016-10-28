@@ -18,4 +18,9 @@
         app:showAsAction="never"
         android:title="About us"
         android:id="@+id/opt_menu_about"/>
+
+    <item android:title="Surse"
+        android:id="@+id/opt_menu_surse"
+        app:showAsAction="ifRoom"
+        android:icon="@mipmap/surse2"/>
 </menu>

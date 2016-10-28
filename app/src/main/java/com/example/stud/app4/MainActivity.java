@@ -30,8 +30,13 @@ public class MainActivity extends AppCompatActivity {
         if(opt == R.id.opt_menu_add_site || opt == R.id.opt_menu_more_add_site){
             Intent intent = new Intent(getApplicationContext(), NewWebsite.class);
             startActivity(intent);
+
         }else if(opt == R.id.opt_menu_about) {
             Intent intent = new Intent(getApplicationContext(), AboutUs.class);
+            startActivity(intent);
+
+        }else if(opt == R.id.opt_menu_surse) {
+            Intent intent = new Intent(getApplicationContext(), Surse.class);
             startActivity(intent);
         }
 

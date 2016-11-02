@@ -1,10 +1,20 @@
 package com.example.stud.app4;
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
+
+import com.example.stud.app4.Preferences.AppPrefs;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 public class Surse extends AppCompatActivity {
     private ListView surseListView;
@@ -16,10 +26,47 @@ public class Surse extends AppCompatActivity {
 
         surseListView = (ListView) findViewById(R.id.surse_listview);
 
-        String[] arrayString = {"www.Google.ro", "www.yahoo.com", "www.lideriidemaine.ro", "www.peluzasud.org", "www.protv.ro"};
+
+        SharedPreferences sharedPrefs = getSharedPreferences(AppPrefs.PREFS_SURSE_FILENAME, MODE_PRIVATE);
+        Set<String> surseSet = sharedPrefs.getStringSet("surse", null);
+
+        List<String> listSurse = new ArrayList<String>(surseSet);
+
         ArrayAdapter adapter = new ArrayAdapter(getApplicationContext(),
-                                                R.layout.acativity_listview, arrayString);
+                                                R.layout.acativity_listview, listSurse);
 
         surseListView.setAdapter(adapter);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+
+        //In surse nu avem nevoie de trimitere catre surse
+        MenuItem opt  = (MenuItem) findViewById(R.id.opt_menu_about);
+        //.setEnabled(false);
+
+        return true;
+    }
+
+
+    public boolean onOptionsItemSelected(MenuItem item){
+        int opt = item.getItemId();
+
+        if(opt == R.id.opt_menu_add_site || opt == R.id.opt_menu_more_add_site){
+            Intent intent = new Intent(getApplicationContext(), NewWebsite.class);
+            startActivity(intent);
+
+        }else if(opt == R.id.opt_menu_about) {
+            Intent intent = new Intent(getApplicationContext(), AboutUs.class);
+            startActivity(intent);
+
+        }else if(opt == R.id.opt_menu_surse) {
+            Intent intent = new Intent(getApplicationContext(), Surse.class);
+            startActivity(intent);
+        }
+
+        return true;
     }
 }

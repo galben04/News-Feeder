@@ -5,7 +5,7 @@ package com.example.stud.app4.Preferences;
  */
 
 public class AppPrefs {
-    public static final String PREFS_SURSE_FILENAME = "AppPrefs";
+    public static final String PREFS_FILENAME = "AppPrefs";
     public static final String PREFS_SURSE = "surse";
 
 //    public static SharedPreferences getSharedPreferences (Context ctxt) {

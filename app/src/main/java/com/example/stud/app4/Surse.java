@@ -24,9 +24,8 @@ public class Surse extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_surse);
 
-        surseListView = (ListView) findViewById(R.id.surse_listview);
-
         refreshList();
+        surseListView = (ListView) findViewById(R.id.surse_listview);
     }
 
 
@@ -38,7 +37,7 @@ public class Surse extends AppCompatActivity {
 
 
     public void refreshList(){
-        SharedPreferences sharedPrefs = getSharedPreferences(AppPrefs.PREFS_SURSE_FILENAME, MODE_PRIVATE);
+        SharedPreferences sharedPrefs = getSharedPreferences(AppPrefs.PREFS_FILENAME, MODE_PRIVATE);
         Set<String> surseSet = sharedPrefs.getStringSet(AppPrefs.PREFS_SURSE, null);
 
         List<String> listSurse = new ArrayList<String>(surseSet);

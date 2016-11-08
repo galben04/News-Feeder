@@ -18,8 +18,8 @@ import com.example.stud.app4.Preferences.AppPrefs;
 import java.util.HashSet;
 import java.util.Set;
 
+import static com.example.stud.app4.Preferences.AppPrefs.PREFS_FILENAME;
 import static com.example.stud.app4.Preferences.AppPrefs.PREFS_SURSE;
-import static com.example.stud.app4.Preferences.AppPrefs.PREFS_SURSE_FILENAME;
 
 public class NewWebsite extends AppCompatActivity {
     Button addSite;
@@ -37,7 +37,7 @@ public class NewWebsite extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
-                    SharedPreferences sharedPrefs = getSharedPreferences(PREFS_SURSE_FILENAME, MODE_PRIVATE);
+                    SharedPreferences sharedPrefs = getSharedPreferences(PREFS_FILENAME, MODE_PRIVATE);
 
                     Set<String> surseSet = sharedPrefs.getStringSet(AppPrefs.PREFS_SURSE, new HashSet<String>());
 
@@ -45,18 +45,19 @@ public class NewWebsite extends AppCompatActivity {
                         surseSet.add(urlTextEdit.getText().toString());
 
                     else
-                        throw new Exception("Url null");
+                        throw new Exception("The url is null");
 
                     SharedPreferences.Editor editor = sharedPrefs.edit();
+                    editor.clear();
                     editor.putStringSet(PREFS_SURSE , surseSet);
-                    editor.apply();
+                    editor.commit();
 
-                    if(titleTextEdit.getText().toString() != null)
-                        Toast.makeText(getApplicationContext(), new String(titleTextEdit.getText().toString()
-                                +" "+ R.string.new_website_added), Toast.LENGTH_SHORT).show();
+                    if(titleTextEdit.getText().toString().length() > 0)
+                        Toast.makeText(getApplicationContext(), titleTextEdit.getText().toString()
+                                +" "+ getResources().getString(R.string.new_website_added), Toast.LENGTH_SHORT).show();
                     else
-                        Toast.makeText(getApplicationContext(), new String(urlTextEdit.getText().toString()
-                                +" "+ R.string.new_website_added), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), urlTextEdit.getText().toString()
+                                +" "+ getString(R.string.new_website_added), Toast.LENGTH_SHORT).show();
 
                     titleTextEdit.setText("");
                     urlTextEdit.setText("");
@@ -64,18 +65,19 @@ public class NewWebsite extends AppCompatActivity {
                     finish();
 
                 } catch(Exception e){
-                    Toast.makeText(getApplicationContext(), R.string.new_website_error, Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.new_website_error) + e.getMessage(),
+                            Toast.LENGTH_LONG).show();
                     e.printStackTrace();
                 }
             }
         });
     }
 
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu, menu);
-
 
         return true;
     }

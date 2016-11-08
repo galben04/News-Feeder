@@ -38,6 +38,9 @@ public class MainActivity extends AppCompatActivity {
         }else if(opt == R.id.opt_menu_surse) {
             Intent intent = new Intent(getApplicationContext(), Surse.class);
             startActivity(intent);
+
+        }else if(opt == R.id.opt_menu_close) {
+            this.finish();
         }
 
         return true;

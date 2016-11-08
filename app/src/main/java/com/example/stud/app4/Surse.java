@@ -26,26 +26,34 @@ public class Surse extends AppCompatActivity {
 
         surseListView = (ListView) findViewById(R.id.surse_listview);
 
+        refreshList();
+    }
 
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        refreshList();
+    }
+
+
+    public void refreshList(){
         SharedPreferences sharedPrefs = getSharedPreferences(AppPrefs.PREFS_SURSE_FILENAME, MODE_PRIVATE);
-        Set<String> surseSet = sharedPrefs.getStringSet("surse", null);
+        Set<String> surseSet = sharedPrefs.getStringSet(AppPrefs.PREFS_SURSE, null);
 
         List<String> listSurse = new ArrayList<String>(surseSet);
 
         ArrayAdapter adapter = new ArrayAdapter(getApplicationContext(),
-                                                R.layout.acativity_listview, listSurse);
+                R.layout.acativity_listview, listSurse);
 
         surseListView.setAdapter(adapter);
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu, menu);
-
-        //In surse nu avem nevoie de trimitere catre surse
-        MenuItem opt  = (MenuItem) findViewById(R.id.opt_menu_about);
-        //.setEnabled(false);
 
         return true;
     }
@@ -63,8 +71,10 @@ public class Surse extends AppCompatActivity {
             startActivity(intent);
 
         }else if(opt == R.id.opt_menu_surse) {
-            Intent intent = new Intent(getApplicationContext(), Surse.class);
-            startActivity(intent);
+            refreshList();
+
+        }else if(opt == R.id.opt_menu_close) {
+            this.finish();
         }
 
         return true;

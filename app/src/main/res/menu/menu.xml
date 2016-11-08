@@ -23,4 +23,7 @@
         android:id="@+id/opt_menu_surse"
         app:showAsAction="ifRoom"
         android:icon="@mipmap/surse2"/>
+
+    <item android:title="Close"
+        android:id="@+id/opt_menu_close"/>
 </menu>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <RelativeLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <TextView
+            android:layout_height="50dp"
+            android:layout_width="wrap_content"
+            android:id="@+id/titluTextView"
+            android:text="Ramai prost! Vezi ce a facut Bianca Draguseanu"/>
+
+        <ImageButton
+            android:layout_height="50dp"
+            android:layout_width="50dp"
+            android:id="@+id/goToSourceImgButton"
+            android:background="@mipmap/surse"
+            android:layout_alignParentEnd="true"/>
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:id="@+id/textTextView"
+        android:layout_margin="10dp"/>
+</LinearLayout>

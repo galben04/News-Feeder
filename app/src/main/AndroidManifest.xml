@@ -17,7 +17,8 @@
         </activity>
         <activity android:name=".NewWebsite" />
         <activity android:name=".AboutUs" />
-        <activity android:name=".Surse"></activity>
+        <activity android:name=".Surse" />
+        <activity android:name=".Stiri"></activity>
     </application>
 
 </manifest>

@@ -7,14 +7,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.stud.app4.Preferences.AppPrefs;
+import com.google.gson.Gson;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
+import static com.example.stud.app4.Preferences.AppPrefs.PREFS_FILENAME;
 
 public class Surse extends AppCompatActivity {
     private ListView surseListView;
@@ -24,8 +23,10 @@ public class Surse extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_surse);
 
-        refreshList();
+
         surseListView = (ListView) findViewById(R.id.surse_listview);
+        refreshList();
+
     }
 
 
@@ -36,17 +37,31 @@ public class Surse extends AppCompatActivity {
     }
 
 
-    public void refreshList(){
-        SharedPreferences sharedPrefs = getSharedPreferences(AppPrefs.PREFS_FILENAME, MODE_PRIVATE);
-        Set<String> surseSet = sharedPrefs.getStringSet(AppPrefs.PREFS_SURSE, null);
-
-        List<String> listSurse = new ArrayList<String>(surseSet);
-
-        ArrayAdapter adapter = new ArrayAdapter(getApplicationContext(),
-                R.layout.acativity_listview, listSurse);
-
-        surseListView.setAdapter(adapter);
+    public void refreshList () {
+//        SharedPreferences sharedPrefs = getSharedPreferences(AppPrefs.PREFS_FILENAME, MODE_PRIVATE);
+//        Set<String> surseSet = sharedPrefs.getStringSet(AppPrefs.PREFS_SURSE, null);
+//
+//        //List<String> listSurse = new ArrayList<String>(surseSet);
+//
+//        ArrayList<Site> listData = new ArrayList<Site>();
+//        listData.add(new Site("9gag", "www.9gag.com"));
+//        listData.add(new Site("Google", "www.gogle.com"));
+//        listData.add(new Site("Adevarul", "www.adevarul.ro"));
+//
+//
+        SharedPreferences mPrefs = getSharedPreferences(PREFS_FILENAME, MODE_PRIVATE);
+        Gson gson = new Gson();
+        String json1 = mPrefs.getString(AppPrefs.PREFS_SURSE, "");
+        SurseArrayList surseArrayList = gson.fromJson(json1, SurseArrayList.class);
+        try {
+            CustomArrayAdapter adapter = new CustomArrayAdapter(getApplicationContext(),
+                    R.layout.activity_listview_item, surseArrayList.list);
+            surseListView.setAdapter(adapter);
+        } catch(Exception e){
+            e.printStackTrace();
+        }
     }
+
 
 
     @Override
@@ -77,5 +92,10 @@ public class Surse extends AppCompatActivity {
         }
 
         return true;
+    }
+
+    static class ViewHolder{
+        TextView titlu;
+        TextView url;
     }
 }

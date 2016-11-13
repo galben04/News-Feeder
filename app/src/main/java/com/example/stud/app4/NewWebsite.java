@@ -14,12 +14,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.stud.app4.Preferences.AppPrefs;
-
-import java.util.HashSet;
-import java.util.Set;
+import com.google.gson.Gson;
 
 import static com.example.stud.app4.Preferences.AppPrefs.PREFS_FILENAME;
-import static com.example.stud.app4.Preferences.AppPrefs.PREFS_SURSE;
 
 public class NewWebsite extends AppCompatActivity {
     Button addSite;
@@ -37,20 +34,43 @@ public class NewWebsite extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
-                    SharedPreferences sharedPrefs = getSharedPreferences(PREFS_FILENAME, MODE_PRIVATE);
+                    SharedPreferences mPrefs = getSharedPreferences(PREFS_FILENAME, MODE_PRIVATE);
+                    Gson gson = new Gson();
+                    String json = mPrefs.getString(AppPrefs.PREFS_SURSE, "");
 
-                    Set<String> surseSet = sharedPrefs.getStringSet(AppPrefs.PREFS_SURSE, new HashSet<String>());
+                    SurseArrayList surseArrayList = gson.fromJson(json, SurseArrayList.class);
 
-                    if(urlTextEdit.getText().toString().length() != 0)
-                        surseSet.add(urlTextEdit.getText().toString());
+                    if(surseArrayList == null)
+                        surseArrayList = new SurseArrayList();
+//
+//                   SharedPreferences sharedPrefs = getSharedPreferences(PREFS_FILENAME, MODE_PRIVATE);
+//
+//                    Set<String> surseSet = sharedPrefs.getStringSet(AppPrefs.PREFS_SURSE, new HashSet<String>());
+//
+                    if(urlTextEdit.getText().toString().length() != 0) {
+                        Site actualSite;
+                        if(titleTextEdit.getText().toString().length() != 0)
+                            actualSite = new Site(titleTextEdit.getText().toString(), urlTextEdit.getText().toString());
+                        else
+                            actualSite = new Site(urlTextEdit.getText().toString());
 
-                    else
+                        surseArrayList.list.add(actualSite);
+
+                    }else
                         throw new Exception("The url is null");
 
-                    SharedPreferences.Editor editor = sharedPrefs.edit();
-                    editor.clear();
-                    editor.putStringSet(PREFS_SURSE , surseSet);
-                    editor.commit();
+
+//                    SharedPreferences.Editor editor = sharedPrefs.edit();
+//                    editor.clear();
+//                    editor.putStringSet(PREFS_SURSE , surseSet);
+//                    editor.commit();
+                    SharedPreferences.Editor prefsEditor = mPrefs.edit();
+                    gson = new Gson();
+                    String json1 = gson.toJson(surseArrayList);
+
+                    prefsEditor.clear();
+                    prefsEditor.putString(AppPrefs.PREFS_SURSE, json1);
+                    prefsEditor.apply();
 
                     if(titleTextEdit.getText().toString().length() > 0)
                         Toast.makeText(getApplicationContext(), titleTextEdit.getText().toString()

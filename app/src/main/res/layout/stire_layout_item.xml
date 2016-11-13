@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:weightSum="1">
+    android:weightSum="1"
+    android:background="@android:color/background_light">
 
     <RelativeLayout
         android:layout_height="wrap_content"
@@ -11,22 +12,29 @@
         android:weightSum="1">
 
         <TextView
-            android:layout_height="50dp"
+            style="@android:style/TextAppearance.Medium"
+            android:textColor="@android:color/holo_green_dark"
+            android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:id="@+id/titluTextView"
-            android:text="Ramai prost! Vezi ce a facut Bianca Draguseanu"/>
+            android:textStyle="bold"
+            android:text="Ramai prost! Vezi ce a facut Bianca Draguseanu"
+            android:lines="2"
+
+            />
 
         <ImageButton
-            android:layout_height="50dp"
-            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:layout_width="40dp"
             android:id="@+id/goToSourceImgButton"
             android:background="@mipmap/surse"
             android:layout_alignParentEnd="true"/>
     </RelativeLayout>
 
     <TextView
+        android:textColor="@android:color/black"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="200dp"
         android:id="@+id/textTextView"
         android:layout_margin="10dp"/>
 </LinearLayout>

@@ -6,13 +6,37 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.ImageButton;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import java.util.ArrayList;
 
 public class Stiri extends AppCompatActivity {
+    ListView stiriListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stiri);
+
+        stiriListView = (ListView) findViewById(R.id.stiriListView);
+
+        ArrayList<Stire> stiriArrayList = new ArrayList<Stire>();
+        stiriArrayList.add(new Stire("Ramai prost! Ce a facut Bianca Draguseanu!",
+                "Stire text ........dnsinindisninfidnfidnfidnifdnifnidnfidnifnidfidifnidnfindiniinifdnifndaifdnifain", "www.protv.ro"));
+        stiriArrayList.add(new Stire("Romania va fi condusa de tehnocrati",
+                "Stire text ........dnsinindisninfidnfidnfidnifdnifnidnfidnifnidfidifnidnfindiniinifdnifndaifdnifain", "www.adevarul.ro"));
+        stiriArrayList.add(new Stire("Romania va fi condusa de tehnocrati",
+                "Stire text ........dnsinindisninfidnfidnfidnifdnifnidnfidnifnidfidifnidnfindiniinifdnifndaifdnifain", "www.adevarul.ro"));
+        try {
+            StireArrayAdapter adapter = new StireArrayAdapter(getApplicationContext(),
+                    R.layout.activity_listview_item, stiriArrayList);
+            stiriListView.setAdapter(adapter);
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+
     }
 
     @Override
@@ -44,6 +68,10 @@ public class Stiri extends AppCompatActivity {
 
         return true;
     }
-
+    static class ViewHolder{
+        TextView titlu;
+        TextView text;
+        ImageButton gotoBtn;
+    }
 }
 

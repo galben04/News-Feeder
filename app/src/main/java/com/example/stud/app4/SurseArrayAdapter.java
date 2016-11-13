@@ -14,13 +14,13 @@ import java.util.ArrayList;
  * Created by CaNou on 11/12/2016.
  */
 
-public class CustomArrayAdapter extends ArrayAdapter<Site>
+public class SurseArrayAdapter extends ArrayAdapter<Site>
 {
     private ArrayList<Site> list;
 
     //this custom adapter receives an ArrayList of Site objects.
     //Site is my class that represents the data for a single row and could be anything.
-    public CustomArrayAdapter(Context context, int textViewResourceId, ArrayList<Site> SiteList)
+    public SurseArrayAdapter(Context context, int textViewResourceId, ArrayList<Site> SiteList)
     {
         //populate the local list with data.
         super(context, textViewResourceId, SiteList);

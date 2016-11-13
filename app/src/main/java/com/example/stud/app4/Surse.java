@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -27,6 +29,14 @@ public class Surse extends AppCompatActivity {
         surseListView = (ListView) findViewById(R.id.surse_listview);
         refreshList();
 
+
+        surseListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+                Intent intent = new Intent(getApplicationContext(), Stiri.class);
+                startActivity(intent);
+            }
+        });
     }
 
 
@@ -53,13 +63,15 @@ public class Surse extends AppCompatActivity {
         Gson gson = new Gson();
         String json1 = mPrefs.getString(AppPrefs.PREFS_SURSE, "");
         SurseArrayList surseArrayList = gson.fromJson(json1, SurseArrayList.class);
+
         try {
-            CustomArrayAdapter adapter = new CustomArrayAdapter(getApplicationContext(),
+            SurseArrayAdapter adapter = new SurseArrayAdapter(getApplicationContext(),
                     R.layout.activity_listview_item, surseArrayList.list);
             surseListView.setAdapter(adapter);
         } catch(Exception e){
             e.printStackTrace();
         }
+
     }
 
 

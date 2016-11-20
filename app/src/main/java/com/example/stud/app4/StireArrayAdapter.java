@@ -63,5 +63,35 @@ public class StireArrayAdapter extends ArrayAdapter<Stire> {
         //return the row view.
         return convertView;
     }
+
+    @Override
+    public void add(Stire object) {
+        list.add(object);
+    }
+
+    @Override
+    public void clear() {
+        list.clear();
+    }
+
+    public void addAll(ArrayList<Stire> items) {
+        list.addAll(items);
+    }
+
+    @Override
+    public Stire getItem(int position) {
+        return list.get(position);
+    }
+
+    @Override
+    public int getCount() {
+        //super.getCount();
+        return list.size();
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
 }
 

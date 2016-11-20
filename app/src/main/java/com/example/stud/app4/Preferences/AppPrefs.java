@@ -8,6 +8,8 @@ public class AppPrefs {
     public static final String PREFS_FILENAME = "AppPrefs";
     public static final String PREFS_SURSE = "surse";
 
+    public static int MY_PERMISSIONS_REQUEST_READ_CONTACTS;
+
 //    public static SharedPreferences getSharedPreferences (Context ctxt) {
 //        return ctxt.getSharedPreferences(PREFS_SURSE_FILENAME, 0);
 //    }

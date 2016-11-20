@@ -19,6 +19,7 @@ import static com.example.stud.app4.Preferences.AppPrefs.PREFS_FILENAME;
 
 public class Surse extends AppCompatActivity {
     private ListView surseListView;
+    SurseArrayList surseArrayList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +35,7 @@ public class Surse extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
                 Intent intent = new Intent(getApplicationContext(), Stiri.class);
+                intent.putExtra("URL_SURSA", surseArrayList.list.get(position).url); //http://www.tested.com/podcast-xml/");
                 startActivity(intent);
             }
         });
@@ -62,7 +64,7 @@ public class Surse extends AppCompatActivity {
         SharedPreferences mPrefs = getSharedPreferences(PREFS_FILENAME, MODE_PRIVATE);
         Gson gson = new Gson();
         String json1 = mPrefs.getString(AppPrefs.PREFS_SURSE, "");
-        SurseArrayList surseArrayList = gson.fromJson(json1, SurseArrayList.class);
+        surseArrayList = gson.fromJson(json1, SurseArrayList.class);
 
         try {
             SurseArrayAdapter adapter = new SurseArrayAdapter(getApplicationContext(),

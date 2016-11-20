@@ -6,6 +6,15 @@ package com.example.stud.app4;
 
 public class Stire {
     String titlu;
+
+    public Stire(String titlu) {
+        this.titlu = titlu;
+    }
+
+    public void setTitlu(String titlu) {
+        this.titlu = titlu;
+    }
+
     String text;
     String urlSursa;
 

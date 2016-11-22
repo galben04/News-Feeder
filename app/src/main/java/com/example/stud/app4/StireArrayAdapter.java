@@ -93,5 +93,13 @@ public class StireArrayAdapter extends ArrayAdapter<Stire> {
     public long getItemId(int position) {
         return position;
     }
+
+    public void updateAdapter(ArrayList<Stire> result) {
+        this.clear();
+        this.addAll(result);
+
+        this.notifyDataSetChanged();
+    }
+
 }
 

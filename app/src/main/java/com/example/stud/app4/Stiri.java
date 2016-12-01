@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -30,19 +31,10 @@ public class Stiri extends AppCompatActivity {
 
         stiriListView = (ListView) findViewById(R.id.stiriListView);
 
-
-//        ArrayList<Stire> stiriArrayList = new ArrayList<Stire>();
-//        stiriArrayList.add(new Stire("Ramai prost! Ce a facut Bianca Draguseanu!",
-//                "Stire text ........dnsinindisninfidnfidnfidnifdnifnidnfidnifnidfidifnidnfindiniinifdnifndaifdnifain", "www.protv.ro"));
-//        stiriArrayList.add(new Stire("Romania va fi condusa de tehnocrati",
-//                "Stire text ........dnsinindisninfidnfidnfidnifdnifnidnfidnifnidfidifnidnfindiniinifdnifndaifdnifain", "www.adevarul.ro"));
-//        stiriArrayList.add(new Stire("Romania va fi condusa de tehnocrati",
-//                "Stire text ........dnsinindisninfidnfidnfidnifdnifnidnfidnifnidfidifnidnfindiniinifdnifndaifdnifain", "www.adevarul.ro"));
-
         stiriArrayList.add(new Stire("test", "test"));
 
         try {
-            adapter = new StireArrayAdapter(getApplicationContext(),
+            adapter = new StireArrayAdapter(this,
                     R.layout.activity_listview_item, stiriArrayList);
             stiriListView.setAdapter(adapter);
         } catch (Exception e) {
@@ -85,16 +77,16 @@ public class Stiri extends AppCompatActivity {
                 protected void onPostExecute(ArrayList<Stire> result) {
                     adapter.updateAdapter(result);
                 }
-            }.execute(URL, "2");
+            }.execute(URL, " ");
         }
 
     }
 
 //    public void updateAdapter(ArrayList<Stire> result) {
-//        adapter.clear();
-//        adapter.addAll(result);
+//        stireArrayAdapter.clear();
+//        stireArrayAdapter.addAll(result);
 //
-//        adapter.notifyDataSetChanged();
+//        stireArrayAdapter.notifyDataSetChanged();
 //    }
 
 
@@ -112,7 +104,7 @@ public class Stiri extends AppCompatActivity {
                         protected void onPostExecute(ArrayList<Stire> result) {
                             adapter.updateAdapter(result);
                         }
-                    }.execute(URL);
+                    }.execute(URL, " ");
 
                 } else {
 
@@ -162,6 +154,7 @@ public class Stiri extends AppCompatActivity {
         TextView titlu;
         TextView text;
         ImageButton gotoBtn;
+        LinearLayout layoutInf;
 
         public ViewHolder() {
             super();

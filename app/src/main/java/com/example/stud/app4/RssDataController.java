@@ -26,20 +26,31 @@ import static com.example.stud.app4.Utils.RSSXMLTag.TITLE;
 
 
 public  abstract class RssDataController extends AsyncTask< //comment >
-        String,
+        Object,
         Integer,
         ArrayList<Stire>> {
+
+    static public  enum RSSXMLTag {
+        TITLE, DATE, LINK, CONTENT, GUID, IGNORETAG, DESCRIPTION;
+    }
 
     private Utils.RSSXMLTag currentTag;
     ArrayList<Stire> postStiriList = new ArrayList<Stire>();
 
 
     @Override
-    protected ArrayList<Stire> doInBackground(String... params) {
-
+    protected ArrayList<Stire> doInBackground(Object... params) {
+        Log.d("aaa","aaa");
         // TODO Auto-generated method stub
-        String urlStr = params[0];
+        String urlStr = (String) params[0];
 
+        if(!urlStr.startsWith("http://") && !urlStr.startsWith("https://")){
+            urlStr = "http://" + urlStr;
+        }
+
+        if(params[1].getClass() != ArrayList.class) {
+            //ceva
+        }
         InputStream is = null;
 
 
@@ -57,12 +68,12 @@ public  abstract class RssDataController extends AsyncTask< //comment >
             is = connection.getInputStream();
 
 
-            if(params.length == 2){
-                getRssItem(is, Integer.valueOf(params[1]));
-            }else if(params.length == 1) {
+            if(params.length == 3){
+                getRssItem(is,(int) params[2]);
+            }else if(params.length == 2) {
                 parseRss(is);
             }else{
-                getRssItemInterval(is, Integer.valueOf(params[1]), Integer.valueOf(params[2]));
+                getRssItemInterval(is, (int)params[2], (int)params[3]);
             }
 
         } catch (MalformedURLException e) {
@@ -200,11 +211,11 @@ public  abstract class RssDataController extends AsyncTask< //comment >
                         if(nrElem == nr) {
                             postStiriList.add(stire);
                         }
-
                         nrElem++;
                     } else {
                         currentTag = IGNORETAG;
                     }
+
                 } else if (eventType == XmlPullParser.TEXT) {
                     String content = xpp.getText();
                     content = content.trim();

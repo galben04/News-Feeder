@@ -7,10 +7,26 @@ package com.example.stud.app4;
 public class Site {
     String titlu;
     String url;
+    boolean isPref = false;
 
-    public Site(String title,String urlString) {
+    public boolean isPref() {
+        return isPref;
+    }
+
+    public void setPref(boolean pref) {
+        isPref = pref;
+    }
+
+    public Site(String url, boolean isPref, String titlu) {
+        this.url = url;
+        this.isPref = isPref;
+        this.titlu = titlu;
+    }
+
+    public Site(String title, String urlString) {
         titlu = new String(title);
         url = new String(urlString);
+
     }
 
     public Site(String urlString){

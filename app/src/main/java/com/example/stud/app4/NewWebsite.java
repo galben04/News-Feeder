@@ -1,7 +1,6 @@
 package com.example.stud.app4;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -12,11 +11,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.example.stud.app4.Preferences.AppPrefs;
-import com.google.gson.Gson;
-
-import static com.example.stud.app4.Preferences.AppPrefs.PREFS_FILENAME;
 
 public class NewWebsite extends AppCompatActivity {
     Button addSite;
@@ -29,19 +23,26 @@ public class NewWebsite extends AppCompatActivity {
 
         urlTextEdit = (EditText) findViewById(R.id.editTextURL);
         titleTextEdit = (EditText) findViewById(R.id.editTextTilu);
+
+        if(getIntent().getStringExtra(Utils.TITLU_SURSA) != null)
+            urlTextEdit.setText(getIntent().getStringExtra(Utils.TITLU_SURSA));
+
+        if(getIntent().getStringExtra(Utils.URL_SURSA) != null)
+            urlTextEdit.setText(getIntent().getStringExtra(Utils.URL_SURSA));
+
         addSite = (Button) findViewById(R.id.addSite);
         addSite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
-                    SharedPreferences mPrefs = getSharedPreferences(PREFS_FILENAME, MODE_PRIVATE);
-                    Gson gson = new Gson();
-                    String json = mPrefs.getString(AppPrefs.PREFS_SURSE, "");
-
-                    SurseArrayList surseArrayList = gson.fromJson(json, SurseArrayList.class);
-
-                    if(surseArrayList == null)
-                        surseArrayList = new SurseArrayList();
+//                    SharedPreferences mPrefs = getSharedPreferences(PREFS_FILENAME, MODE_PRIVATE);
+//                    Gson gson = new Gson();
+//                    String json = mPrefs.getString(AppPrefs.PREFS_SURSE, "");
+//
+//                    SurseArrayList surseArrayList = gson.fromJson(json, SurseArrayList.class);
+//
+//                    if(surseArrayList == null)
+//                        surseArrayList = new SurseArrayList();
 //
 //                   SharedPreferences sharedPrefs = getSharedPreferences(PREFS_FILENAME, MODE_PRIVATE);
 //
@@ -54,7 +55,8 @@ public class NewWebsite extends AppCompatActivity {
                         else
                             actualSite = new Site(urlTextEdit.getText().toString());
 
-                        surseArrayList.list.add(actualSite);
+                        Utils.surseArrayList.list.add(actualSite);
+                        Utils.hasChangedSurse = true;
 
                     }else
                         throw new Exception("The url is null");
@@ -64,13 +66,13 @@ public class NewWebsite extends AppCompatActivity {
 //                    editor.clear();
 //                    editor.putStringSet(PREFS_SURSE , surseSet);
 //                    editor.commit();
-                    SharedPreferences.Editor prefsEditor = mPrefs.edit();
-                    gson = new Gson();
-                    String json1 = gson.toJson(surseArrayList);
-
-                    prefsEditor.clear();
-                    prefsEditor.putString(AppPrefs.PREFS_SURSE, json1);
-                    prefsEditor.apply();
+//                    SharedPreferences.Editor prefsEditor = mPrefs.edit();
+//                    gson = new Gson();
+//                    String json1 = gson.toJson(surseArrayList);
+//
+//                    prefsEditor.clear();
+//                    prefsEditor.putString(AppPrefs.PREFS_SURSE, json1);
+//                    prefsEditor.apply();
 
                     if(titleTextEdit.getText().toString().length() > 0)
                         Toast.makeText(getApplicationContext(), titleTextEdit.getText().toString()

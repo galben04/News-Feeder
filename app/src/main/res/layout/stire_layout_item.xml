@@ -8,8 +8,7 @@
     <RelativeLayout
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:weightSum="1">
+        android:orientation="horizontal">
 
         <TextView
             style="@android:style/TextAppearance.Medium"
@@ -20,7 +19,6 @@
             android:textStyle="bold"
             android:text="Ramai prost! Vezi ce a facut Bianca Draguseanu"
             android:lines="2"
-
             />
 
         <ImageButton
@@ -31,10 +29,22 @@
             android:layout_alignParentEnd="true"/>
     </RelativeLayout>
 
+    <View
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"/>
+
     <TextView
         android:textColor="@android:color/black"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="50dp"
         android:id="@+id/textTextView"
         android:layout_margin="10dp"/>
+    <View
+        android:layout_marginBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="@android:color/darker_gray"/>
 </LinearLayout>

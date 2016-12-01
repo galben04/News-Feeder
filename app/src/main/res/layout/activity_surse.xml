@@ -15,11 +15,14 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:id="@+id/titlu_surse"
-        android:text="Suorces for your News Feed:"/>
+        android:text="Suorces for your News Feed:"
+        android:layout_marginBottom="30dp"
+        />
 
     <ListView
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:id="@+id/surse_listview"/>
+
 
 </LinearLayout>

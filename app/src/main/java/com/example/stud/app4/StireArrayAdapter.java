@@ -1,11 +1,16 @@
 package com.example.stud.app4;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.os.Build;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,7 +22,9 @@ import java.util.ArrayList;
 
 public class StireArrayAdapter extends ArrayAdapter<Stire> {
     private ArrayList<Stire> list;
-    //this custom adapter receives an ArrayList of Stire objects.
+
+    Activity context;
+    //this custom stireArrayAdapter receives an ArrayList of Stire objects.
     //Stire is my class that represents the data for a single row and could be anything.
     public StireArrayAdapter(Context context, int textViewResourceId, ArrayList<Stire> StireList)
     {
@@ -25,6 +32,7 @@ public class StireArrayAdapter extends ArrayAdapter<Stire> {
         super(context, textViewResourceId, StireList);
         this.list = new ArrayList<Stire>();
         this.list.addAll(StireList);
+        this.context = (Activity) context;
     }
 
     public View getView(final int position, View convertView, ViewGroup parent)
@@ -49,15 +57,23 @@ public class StireArrayAdapter extends ArrayAdapter<Stire> {
             @Override
             public void onClick(View v)
             {
-                Toast.makeText(getContext(), "Indisponibil...", Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), "Loading article from orignal website...", Toast.LENGTH_SHORT).show();
                 //foloseste list.get(position).url;
+                Intent intent = new Intent(context, WebBrowserStire.class);
+                intent.putExtra("URL_SURSA", list.get(position).urlSursa);
+                intent.putExtra("TEST_ARTICOL", list.get(position).text);//http://www.tested.com/podcast-xml/");
+
+                context.startActivity(intent);
             }
         });
 
 
         //setting data into the the ViewHolder.
         holder.titlu.setText(list.get(position).titlu);
-        holder.text.setText(list.get(position).text);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            holder.text.setText(Html.fromHtml(list.get(position).text, Html.FROM_HTML_MODE_LEGACY));
+        } else
+            holder.text.setText(Html.fromHtml(list.get(position).text));
         //holder.gotoBtn.setBackground();
 
         //return the row view.
@@ -95,6 +111,14 @@ public class StireArrayAdapter extends ArrayAdapter<Stire> {
     }
 
     public void updateAdapter(ArrayList<Stire> result) {
+        this.clear();
+        this.addAll(result);
+
+        this.notifyDataSetChanged();
+    }
+
+    public void AddAndupdateAdapter(ArrayList<Stire> result) {
+        result.addAll(this.list);
         this.clear();
         this.addAll(result);
 

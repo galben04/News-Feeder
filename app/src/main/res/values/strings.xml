@@ -4,4 +4,9 @@
     <string name="title_activity_surse">Surse</string>
     <string name="new_website_error">Error, caused by: </string>
     <string name="new_website_added">was added to your list</string>
+    <string name="new_website">New website</string>
+    <string name="about_us">About Us</string>
+    <string name="surse">Sources</string>
+    <string name="news">News</string>
+    <string name="news_list">News from your favorites sources</string>
 </resources>

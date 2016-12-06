@@ -247,8 +247,10 @@ public class MainActivity extends AppCompatActivity {
 
         }else if(opt == R.id.opt_menu_close) {
             this.finish();
+        }else if(opt == R.id.opt_teste) {
+            Intent intent = new Intent(getApplicationContext(), Teste.class);
+            startActivity(intent);
         }
-
         return true;
     }
 

@@ -26,7 +26,8 @@
             android:layout_width="40dp"
             android:id="@+id/goToSourceImgButton"
             android:background="@mipmap/surse"
-            android:layout_alignParentEnd="true"/>
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/titluTextView"/>
     </RelativeLayout>
 
     <View

@@ -38,21 +38,28 @@ public class StireArrayAdapter extends ArrayAdapter<Stire> {
     public View getView(final int position, View convertView, ViewGroup parent)
     {
         //creating the ViewHolder we defined earlier.
-        Stiri.ViewHolder holder = new Stiri.ViewHolder();
+        final Stiri.ViewHolder holder = new Stiri.ViewHolder();
 
         //creating LayoutInflator for inflating the row layout.
         LayoutInflater inflator = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         //inflating the row layout we defined earlier.
-        convertView = inflator.inflate(R.layout.stire_layout_item, null);
+        convertView = inflator.inflate(R.layout.new_stire_layout, null);
 
         //setting the views into the ViewHolder.
-        holder.titlu = (TextView) convertView.findViewById(R.id.titluTextView);
-        holder.text = (TextView) convertView.findViewById(R.id.textTextView);
-        holder.gotoBtn = (ImageButton)  convertView.findViewById(R.id.goToSourceImgButton);
+        holder.titlu = (TextView) convertView.findViewById(R.id.titleTextView);
+        holder.text = (TextView) convertView.findViewById(R.id.detailsTextView);
+
+        holder.gotoBtn = (ImageButton)  convertView.findViewById(R.id.btnGoToSursa);
+        holder.detailsBtn = (ImageButton) convertView.findViewById(R.id.btnDetaliiStire);
+
+        holder.wrapperGoToBtn = (LinearLayout) convertView.findViewById(R.id.wrapperDetails);
+        holder.wrapperDetailsBtn = (LinearLayout) convertView.findViewById(R.id.wrapperDetails);
+
+        holder.detailLinearLayout = (LinearLayout) convertView.findViewById(R.id.detailsLinearLayout);
 
         //define an onClickListener for the ImageView.
-        holder.gotoBtn.setOnClickListener(new View.OnClickListener()
+        holder.wrapperGoToBtn.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
@@ -67,6 +74,18 @@ public class StireArrayAdapter extends ArrayAdapter<Stire> {
             }
         });
 
+        holder.wrapperDetailsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(holder.detailLinearLayout.getVisibility() == View.GONE) {
+                    holder.detailsBtn.setBackgroundResource(R.mipmap.up_arrow);
+                    holder.detailLinearLayout.setVisibility(View.VISIBLE);
+                }else{
+                    holder.detailsBtn.setBackgroundResource(R.mipmap.down_arrow);
+                    holder.detailLinearLayout.setVisibility(View.GONE);
+                }
+            }
+        });
 
         //setting data into the the ViewHolder.
         holder.titlu.setText(list.get(position).titlu);

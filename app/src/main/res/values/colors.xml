@@ -3,4 +3,36 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="colorBackground">#CFB5A0</color>
+    <color name="whiteTone1">#F5F0EC</color>
+    <color name="whiteTone2">#F5F0EC</color>
+    <color name="whiteTone3">#F5F0EC</color>
+
+    <color name="blackTone1">#16110D</color>
+    <color name="blackTone2">#2D221A</color>
+    <color name="blackTone3">#705540</color>
+    <color name="blackTone4">#86664D</color>
+    <color name="blackTone5">#2D221A</color>
+    <color name="blackTone6">#2D221A</color>
+    <color name="ActionBar">#B38867</color>
+    <color name="highlighter">#6CB367</color>
+    <color name="Status_Bar_Color">#B3AE67</color>
+    <color name="verde_ajustat">#6CB367</color>
+
+    <color name="ca_ActionBar">#3b5fa4</color>
+    <color name="ca_background">#47515d</color>
+    <color name="ca_blue_dark">#171b31</color>
+    <color name="ca_blue_dark_1">#20346F</color>
+    <color name="ca_red">#C0120B</color>
+    <color name="ca_gray">#aeb7c2</color>
+    <color name="ca_white">#fefefe</color>
+    <color name="ca_gray_white">#f0f0f0</color>
+    <color name="ca_red_2">#9b3430</color>
+    <color name="ca_red_white">#270D0C</color>
+    <color name="ca_blue_light_1">#E3E6ED</color>
+    <color name="ca_blue_light_2">#7480A5</color>
+
+    <color name="ca_dark_blue_a1">#182753</color>
+    <color name="ca_dark_blue_a2">#1C2E61</color>
+    <color name="white">#FFFFFF</color>
 </resources>

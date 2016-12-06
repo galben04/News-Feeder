@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/ca_blue_light_1">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="5dp"
+
+        android:orientation="horizontal"
+        android:longClickable="true"
+        android:background="@color/ca_gray_white">
+
+        <LinearLayout
+            android:id="@+id/WrappertitluLinearLayout"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="85"
+            android:orientation="vertical"
+            android:longClickable="true"
+            android:background="@color/ca_gray_white">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/titleTextView"
+                android:text="Titlu"
+                android:padding="10dp"
+                android:textStyle="bold"
+                style="@style/Base.TextAppearance.Widget.AppCompat.Toolbar.Subtitle"
+                android:textColor="@color/ca_red_2" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="13"
+            android:layout_marginEnd="0dp"
+            android:orientation="vertical"
+            android:background="@color/ca_blue_dark_1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/wrapperGoToSursa">
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"/>
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/go_to_location_24"
+                    android:layout_margin="10dp"
+                    android:layout_gravity="center"
+                    android:id="@+id/btnGoToSursa"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/white"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/wrapperDetails">
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"/>
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/down_arrow"
+                    android:layout_margin="10dp"
+                    android:layout_gravity="center"
+                    android:id="@+id/btnDetaliiStire"/>
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+    android:layout_width="match_parent"
+    android:layout_height="1dp"
+    android:background="@color/ca_red_2"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/detailsLinearLayout"
+        android:visibility="gone"
+        android:background="@color/white"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/detailsTextView"
+            android:padding="10dp"/>
+    </LinearLayout>
+
+<View
+    android:layout_width="match_parent"
+    android:layout_height="5dp"
+    android:background="@color/ca_red_2"/>
+</LinearLayout>

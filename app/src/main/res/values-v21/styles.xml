@@ -6,4 +6,14 @@
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
+
+    <style name="Tema1" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">#b38867</item>
+        <item name="colorAccent">#ddbc95</item>
+        <item name="android:windowBackground">@color/blackTone3</item>
+        <item name="android:colorBackground">@color/blackTone3</item>
+        <item name="colorPrimaryDark">@color/whiteTone1</item>
+        <item name="android:textColorPrimary">@color/blackTone5</item>
+        <item name="android:statusBarColor">@color/Status_Bar_Color</item>
+    </style>
 </resources>

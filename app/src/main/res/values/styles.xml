@@ -1,20 +1,43 @@
 <resources>
 
-    <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="actionBarStyle">@style/Widget.AppTheme.ActionBar</item>
+        <item name="actionBarTheme">@style/ThemeOverlay.AppTheme.ActionBar</item>
+        <item name="actionBarPopupTheme">@style/ThemeOverlay.AppTheme.PopupMenu</item>
     </style>
 
-    <style name="AppTheme.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
+    <style name="Widget.AppTheme.ActionBar" parent="Widget.AppCompat.ActionBar.Solid">
+        <!-- action bar background - without android prefix -->
+        <item name="background">@color/ca_blue_dark_1</item>
+        <!-- action bar elevation - without android prefix -->
+        <!--<item name="elevation">4dp</item>-->
     </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="ThemeOverlay.AppTheme.ActionBar" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <!-- title text color -->
+        <item name="android:textColorPrimary">@color/ca_white</item>
+        <item name="android:textStyle">bold</item>
+        <!--<item name="android:fontFamily">sans-serif</item>-->
+        <!-- subtitle text color -->
+        <!--<item name="android:textColorSecondary">?android:textColorPrimary</item>-->
+        <!--&lt;!&ndash; action menu item text color &ndash;&gt;-->
+        <!--<item name="actionMenuTextColor">?android:textColorPrimary</item>-->
+        <!--&lt;!&ndash; action menu item icon color &ndash;&gt;-->
+        <!--<item name="colorControlNormal">?android:textColorPrimary</item>-->
+    </style>
 
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="ThemeOverlay.AppTheme.PopupMenu" parent="ThemeOverlay.AppCompat.Dark">
+        <!-- popup menu background - NEVER "android:background" !!! in themes -->
+        <item name="android:colorBackground">@color/ca_blue_dark_1</item>
+        <!-- popup menu item text color -->
+        <!--<item name="android:textColorPrimary">...</item>-->
+    </style>
+
+    <style name="AppThemeWindow" parent="AppTheme">
+        <!-- window background - NEVER "android:background" in themes !!! -->
+        <item name="android:windowBackground">@color/ca_blue_light_1</item>
+        <item name="android:textColorPrimary">@color/blackTone2</item>
+        <!--<item name="android:textColorSecondary">...</item>-->
+    </style>
 
 </resources>

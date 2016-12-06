@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="wrapperLinearLayout">
+        <item name="android:background">@color/ca_white</item>
+    </style>
+
+    <style name="button" parent="Widget.AppCompat.Button.Colored">
+        <!--<item name="android:textColor">@color/ca_red_</item>-->
+        <item name="android:background">@color/ca_red_2</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <!--<item name="android:padding">5dp</item>-->
+        <!--<item name="android:layout_margin">5dp</item>-->
+
+    </style>
+</resources>

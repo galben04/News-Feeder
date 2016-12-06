@@ -4,28 +4,44 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.stud.app4.MainActivity"
-    android:orientation="vertical" >
+    android:orientation="vertical">
+    <!--android:paddingLeft="@dimen/activity_horizontal_margin"-->
+    <!--android:paddingRight="@dimen/activity_horizontal_margin"-->
+
 <!--android:paddingBottom="@dimen/activity_vertical_margin"-->
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/ca_gray_white"/>
 
-         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="News List:" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="@color/ca_red_2"
+        android:layout_marginBottom="30dp"
+       />
 
-
+    <TextView
+        android:text="@string/news_list"
+        style="@style/textViewTitlu"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"/>
+        android:layout_marginBottom="0dp"
+        android:orientation="vertical">
+<!--<View-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="5dp"-->
+    <!--android:background="@color/ca_ActionBar"/>-->
     <ListView
         android:id="@+id/listViewGen"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp"
+        android:background="@drawable/boder"
         />
-
-
 
 
 </LinearLayout>

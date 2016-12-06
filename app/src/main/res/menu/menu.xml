@@ -2,10 +2,13 @@
 <menu xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
+    <item
+        android:title="Teste"
+        android:id="@+id/opt_teste">
+        </item>
     <item
         app:showAsAction="ifRoom"
-        android:icon="@mipmap/plus"
+        android:icon="@mipmap/add_64"
         android:title="Add"
         android:id="@+id/opt_menu_add_site"/>
 
@@ -20,9 +23,9 @@
         android:id="@+id/opt_menu_about"/>
 
     <item android:title="Surse"
+        android:icon="@mipmap/database_full_64"
         android:id="@+id/opt_menu_surse"
-        app:showAsAction="ifRoom"
-        android:icon="@mipmap/surse2"/>
+        app:showAsAction="ifRoom" />
 
     <item android:title="Close"
         android:id="@+id/opt_menu_close"/>

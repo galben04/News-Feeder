@@ -154,7 +154,11 @@ public class Stiri extends AppCompatActivity {
         TextView titlu;
         TextView text;
         ImageButton gotoBtn;
-        LinearLayout layoutInf;
+        ImageButton detailsBtn;
+
+        LinearLayout wrapperGoToBtn;
+        LinearLayout wrapperDetailsBtn;
+        LinearLayout detailLinearLayout;
 
         public ViewHolder() {
             super();

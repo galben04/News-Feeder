@@ -1,0 +1,27 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:orientation="horizontal" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/ca_ActionBar">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Open details"
+            android:id="@+id/teste_buton"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp" android:background="@color/ca_red_2"
+            android:visibility="gone"
+            android:id="@+id/teste_layout"
+            android:orientation="horizontal">
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

@@ -10,18 +10,37 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/AppThemeWindow">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".NewWebsite" />
-        <activity android:name=".AboutUs" />
-        <activity android:name=".Surse" />
-        <activity android:name=".Stiri" />
-        <activity android:name=".WebBrowserStire"></activity>
+        <activity
+            android:name=".NewWebsite"
+            android:label="@string/new_website"
+            android:theme="@style/AppThemeWindow" />
+        <activity
+            android:name=".AboutUs"
+            android:label="@string/about_us"
+            android:theme="@style/AppThemeWindow" />
+        <activity
+            android:name=".Surse"
+            android:label="@string/surse"
+            android:theme="@style/AppThemeWindow" />
+        <activity
+            android:name=".Stiri"
+            android:label="@string/news"
+            android:theme="@style/AppThemeWindow" />
+        <activity
+            android:name=".WebBrowserStire"
+            android:theme="@style/AppThemeWindow" />
+        <activity android:name=".Teste"
+            android:label="TESTE"
+            android:theme="@style/AppThemeWindow"></activity>
     </application>
 
 </manifest>

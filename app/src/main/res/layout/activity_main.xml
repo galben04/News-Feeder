@@ -25,9 +25,9 @@
 
     <TextView
         android:text="@string/news_list"
-        style="@style/textViewTitlu"
-        android:layout_marginLeft="12dp"
-        android:layout_marginRight="12dp"/>
+        style="@style/textViewTitlu"/>
+        <!--android:layout_marginLeft="12dp"-->
+        <!--android:layout_marginRight="12dp"/>-->
         android:layout_marginBottom="0dp"
         android:orientation="vertical">
 <!--<View-->
@@ -36,12 +36,10 @@
     <!--android:background="@color/ca_ActionBar"/>-->
     <ListView
         android:id="@+id/listViewGen"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_width="wrap_content"
         android:layout_marginRight="5dp"
-        android:layout_marginLeft="5dp"
-        android:background="@drawable/boder"
-        />
+        android:layout_marginLeft="5dp" />
 
 
 </LinearLayout>
